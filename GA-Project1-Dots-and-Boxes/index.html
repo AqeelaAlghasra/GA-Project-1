@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/app1.js"></script>
+    <link rel="stylesheet" href="./css/style2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="../../jqwidgets/styles/jqx.summer.css" type="text/css" /> -->
+    <!-- <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxdropdownlist.js"></script> -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2FX5PV9DNT"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-2FX5PV9DNT');</script></head>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title>Dots and Boxes Game</title>
+</head>
+<body>
+    <section class="players">
+    <h3>Choose game board size </h3>
+    <div id="controls">
+
+        
+        
+        <div id="custom-form">
+        <label for="rows">Rows:</label>
+        <input type="number" id="rows-number" min="2" value="5">
+        <label for="cols">Columns:</label>
+        <input type="number" id="cols-number" min="2" value="5">
+        <button id="custom" class="Grid">Build Grid</button>
+        </div>
+        <button id="size1" class="Grid">5X5 Grid</button>
+        <button id="size2" class="Grid">10X10 Grid</button>
+        <button id="size3" class="Grid">15X15 Grid</button>
+    </div>
+    <div id="PlayersData">
+
+        <div>
+        <h3>Player  Name :</h3> <input type="text" name="player1Name" id="P1Name">
+        <h3> Box Color  :  </h3> 
+        <select name="P1colorMenu" class="form-control" id="P1colorMenu">
+            
+            <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
+            <option style="color:#008000;" value="#008000">&#9724; Green</option>
+            <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
+            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
+            <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+            <option style="color:#000;" value="#000">&#9724; Black</option>
+          </select>
+        </div>
+        <div class="P2-data">
+           <h3>Player Name :</h3> <input type="text" name="player2Name" id="P2Name">
+          
+        <h3>Box Color</h3>  
+        <select name="P2colorMenu" class="form-control" id="P2colorMenu">
+            <option value="">Choose</option>
+            <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
+            <option style="color:#008000;" value="#008000">&#9724; Green</option>
+            <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
+            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
+            <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+            <option style="color:#000;" value="#000">&#9724; Black</option>
+          </select></div>
+          <!-- <div><h3>Player 3 Name :</h3> <input type="text" name="player3Name" id="P3Name">
+          <h3>Box Color</h3> 
+        <select name="P3colorMenu" class="form-control" id="P3colorMenu">
+            
+            <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
+            <option style="color:#008000;" value="#008000">&#9724; Green</option>
+            <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
+            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
+            <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+            <option style="color:#000;" value="#000">&#9724; Black</option>
+        </select> </div> -->
+
+
+    </div>
+   
+       <div>
+            <h3>Choose your game option</h3>
+            
+            <button id="PxC" class="Game">
+                Player   VS   Computer
+             </button>
+            <button id="PxP" class="Game">
+                Player   VS   Player
+             </button>
+             <button id="2PxC"class="Game">
+                2 Players VS Computer
+             </button>
+             <button id="Px2C"class="Game">
+                Player VS 2 Computer
+             </button>
+
+        </div>
+
+       
+    </section>
+    <Section class="Result"><div>
+        <button id="startGame">StartGame</button> 
+        <button id="stop">
+            Stop Game
+         </button>
+        </div>
+
+            num of Games :0
+            <div id="Turn">
+                Turn
+            </div>
+            <div id="player">
+                Player :0
+            </div>
+            <div id="player2" >
+                Computer:0
+            </div>
+            <div id="player3">
+                
+            </div>
+    </Section>
+
+    <div id="board">
+
+
+
+    </div>
+    
+    
+    
+</body>
+</html>

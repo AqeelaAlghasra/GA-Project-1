@@ -1,0 +1,128 @@
+body {
+	width: 100%;
+    padding: 10 px;
+    margin: 100 ;   
+    background-color: darkred;
+    text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+	color: beige;
+}
+
+button.Grid {
+	background-color:snow;
+	color: black;
+	border-radius: 10px;
+	width: 100px ;
+	height: 50px;
+	border-style: solid;
+	font-size: medium;
+
+}
+
+button.Game {
+	display: inline;
+	padding:-10px;
+	margin: 0;
+	background-color: rgb(58, 56, 56);
+	color: antiquewhite;
+	border-radius: 10px;
+	width: 200px ;
+	height: 50px;
+	border-style: solid;
+	font-size: medium;
+
+}
+
+body #board{
+	 margin-top: 50px;
+
+}
+#PlayerData {
+	text-align: left;
+	margin: 5px;
+}
+#PlayersData h3 {
+	display:inline-block;
+	align-items: left;
+	margin: 10px auto 30px 0;
+}
+
+#PlayersData select{
+	width: 130px;
+	margin: 5px auto 30px 15px;
+	
+}
+
+.player1{
+	margin: 0 auto;
+	color: skyblue;
+	font-weight: bolder;
+	font-size: 20px;
+
+}
+
+.player2{
+	margin: 0 auto;
+	
+	color: salmon;
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+
+.box{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	/* background-color: white; */
+	line-height: 100px;
+}
+
+.letter{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	background-color: white;
+	line-height: 100px;
+}
+
+
+.dot{
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	border-radius: 100%;
+	background-color: gray;		
+	z-index: 1000;	
+}
+
+.line{
+	position: absolute;
+	background-color: whitesmoke;	
+	cursor: pointer;
+	z-index: 1;	
+
+}
+
+.lineh{
+	height: 5px;
+	width: 100px;
+}
+
+.linev{
+	height: 100px;
+	width: 5px;
+}
+
+.line:hover{
+	background-color: #373737;
+}
+
+.line-active{
+	background-color: #373737;
+}
+
+#dark-mode{
+
+}
+
