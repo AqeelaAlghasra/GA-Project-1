@@ -7,7 +7,19 @@ body {
 	font-family: 'Courier New', Courier, monospace;
 	color: beige;
 }
+.howtoplay {
+	font-size: medium;
+	text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+	color: beige;
+}
 
+.howtoplay li {
+	color: transparent;
+}
+.howtoplay li p{
+	color: beige;
+}
 button {
 
 	font-size: medium;

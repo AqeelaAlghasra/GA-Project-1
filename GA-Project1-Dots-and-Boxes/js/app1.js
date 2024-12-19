@@ -150,7 +150,7 @@ gameOptionsBtns.forEach(btn => {
 
 
 startGameBtn.addEventListener('click',()=>{
-
+    $('.howtoplay').hide()
     gameStarted=true;
     if (sizeOptionClicked==false){
         currentBoardSize="5x5"
