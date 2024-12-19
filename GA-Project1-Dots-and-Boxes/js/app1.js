@@ -32,6 +32,7 @@ let StartNewGame=false;
 let sizeOptionClicked=false;
 let gameOptionClicked=false;
 let player1 =0
+let comp2=0
 
 
 
@@ -119,8 +120,22 @@ gameOptionsBtns.forEach(btn => {
             //console.log(playerletter,player2letter);
             currentGameOption = '2PxC'
 
-        }else {
+        }else if (event.target.id === 'Px2C' ) {
             isPlayer2Computer = true;
+            
+            gameOptionClicked=true
+
+            $("#player").text(`${playerName.value} : 0 `);
+            $("#player2").text(`Computer : 0 `);
+            $('.P2-data').hide();
+            $("#player3").text(` Computer2 : 0 `);
+            $("#player3").show();
+            //console.log(playerletter,player2letter);
+            currentGameOption = 'Px2C'
+
+        }
+        else {
+            isPlayer2Computer = false;
             gameOptionClicked=true
 
             $("#player").text(`${playerName.value} : 0 `);
@@ -241,9 +256,9 @@ function applyEvents() {
 
     // players.push(playerName)
     console.log(players);
-    $('#Turn').text('Turn :' + players[0])
+    $('#Turn').text('Turn :' + players[0]);
     $("div.line").unbind('click').bind('click', function () {
-
+        console.log(this)
         let id1 = parseInt($(this).attr("data-line-1"));
         let id2 = parseInt($(this).attr("data-line-2"));
 
@@ -256,25 +271,75 @@ function applyEvents() {
             $(this).attr("data-active", "true");
             
             if(a === false && b === false){
-                if (currentGameOption ==='PxC')
-                    computer(comp)
-                else if (currentGameOption ==='PxP'){
-                    PlayerSelect()
-                }else if (currentGameOption ==='2PxC'){
+                switchPlayer('Computer');
+                // if (currentGameOption ==='PxC')
+                //     player = player === 'Computer'? playerName.value : 'Computer';
+                //     $('#Turn').text('Turn :' + player)
+                //     if(turn === 'Computer')
+                //         computer()
+                    
+                // else if (currentGameOption ==='PxP'){
+                //     player = player === player2Name.value ? playerName.value : player2Name.value;
+                //     $('#Turn').text('Turn :' + player)
+                //     PlayerSelect()
+                // }else if (currentGameOption ==='2PxC'){
 
-                    switchTurn(`${players[1]}`);
-                    switchTurn(`Computer`);
+                //     player = player === player2Name.value ? 'Computer' : (player === 'Computer' ? playerName.value : player2Name.value);
+                //     $('#Turn').text('Turn :' + player)
                 
-                }else if (currentGameOption ==='Px2C'){
-                    switchTurn('Computer');
-                    switchTurn('Computer2');
-                }
+                // }else if (currentGameOption ==='Px2C'){
+                    
+                //     player = player === 'Computer' ?  playerName.value : 'Computer';
+                //     $('#Turn').text('Turn :' + player)
+                //     if (player ==='Computer'){
+                //         isComp2Playing=true
+                //         computer()
+                        
+                //     }
+                //     else
+                //         console.log('player',player)
+                    
+                // }
             }
         }
     });
+
+    
 }
 
 
+function switchPlayer(){
+    if (currentGameOption ==='PxC'){
+        player = player === 'Computer'? playerName.value : 'Computer';
+        $('#Turn').text('Turn :' + player)
+        if(turn === 'Computer')
+            computer()
+        else
+            PlayerSelect()
+    }   
+    else if (currentGameOption ==='PxP'){
+        player = player === player2Name.value ? playerName.value : player2Name.value;
+        $('#Turn').text('Turn :' + player)
+        PlayerSelect(player)
+    }else if (currentGameOption ==='2PxC'){
+
+        player = player === player2Name.value ? 'Computer' : (player === 'Computer' ? playerName.value : player2Name.value);
+        $('#Turn').text('Turn :' + player)
+    
+    }else if (currentGameOption ==='Px2C'){
+        
+        player = player === 'Computer' ?  playerName.value : 'Computer';
+        $('#Turn').text('Turn :' + player)
+        if (player ==='Computer'){
+            isComp2Playing=true
+            computer()
+            
+        }
+        else
+            console.log('player',player)
+        
+    }
+}
 
 function computer() {
 
@@ -322,15 +387,15 @@ function computerSelect(id) {
 
 	$("div.line[data-line-1='"+id+"'], div.line[data-line-2='"+id+"']").each(function(i, v){		
 		if(!$(v).hasClass("line-active")){
-			var id1 = parseInt($(v).attr("data-line-1"));
-			var id2 = parseInt($(v).attr("data-line-2"));  
+			let id1 = parseInt($(v).attr("data-line-1"));
+			let id2 = parseInt($(v).attr("data-line-2"));  
 
 			console.log("----- " + turn);
-
+            let a = false, b = false;
 			if(checkValid(v) && turn === false){
 				console.log("-----");
-				if(id1 >= 0) var a = addValue(id1);
-				if(id2 >= 0) var b = addValue(id2);
+				if(id1 >= 0)  a = addValue(id1);
+				if(id2 >= 0)  b = addValue(id2);
 				$(v).addClass("line-active");
 				$(v).attr("data-active", "true");
 
@@ -338,7 +403,7 @@ function computerSelect(id) {
 					computer();	
 				}else{
 					turn = true;
-					$("#turn").text("Turn : " + "You");
+					// $("#turn").text("Turn : " + "You");
 				}					
 			}
 		}
@@ -346,7 +411,7 @@ function computerSelect(id) {
 }
 
 function PlayerSelect(){
-
+    console.log()
     
 
     $("div.line[data-line-1='" + id + "'], div.line[data-line-2='" + id + "']").each(function (i, v) {
@@ -355,7 +420,7 @@ function PlayerSelect(){
             let id2 = parseInt($(v).attr("data-line-2"));
 
             console.log("----- " + turn);
-
+            console.log('Valid',checkValid(v))
             if (checkValid(v) && turn === false) {
                 console.log("-----");
                 let a = false, b = false;
@@ -365,7 +430,9 @@ function PlayerSelect(){
                 $(v).addClass("line-active");
                 $(v).attr("data-active", "true");
                 console.log('Player Select', id)
-            
+                if(a === true || b === true){
+					turn = false;
+				}	
             
                                     
             }
@@ -378,41 +445,6 @@ function PlayerSelect(){
 function checkValid(t) {
     return ($(t).attr("data-active") === "false");
 }
-function switchTurn(player){ 
-
-       
-    if(currentGameOption==='PxC'){
-        if (player  === `${players[0]}`)
-            $('#Turn').text('Turn :' + player)
-            PlayerSelect()
-    }else if (currentGameOption==='PxP') {
-        if (player === `${players[1]}`)
-            $('#Turn').text('Turn :' + player)
-            PlayerSelect()
-    }else if (currentGameOption==='Px2C') {
-        if (play === `Computer`) {
-            $('#Turn').text('Turn :' + player)
-            computer(comp);
-            
-        } else if (player === 'Computer2') {
-            $('#Turn').text('Turn :' + player)
-            computer(comp2); 
-        } 
-
-    }else if (currentGameOption==='2PxC') {
-        if (player === `${players[0]}`) {
-            $('#Turn').text('Turn :' + player)
-            PlayerSelect()
-        } else if (player === `${players[1]}`) {
-            
-            $('#Turn').text('Turn :' + player)
-            PlayerSelect()
-        }
-    }
-    console.log(turn)
-    $('#Turn').text('Turn :' + player);
-}
-
 
 
 
@@ -454,42 +486,55 @@ function enableBtn(){
 function acquire(id) {
 
     letter =""
-    if (turn && letter !== 'C') {
+    if(currentGameOption==="PxC"){
 
-        // color = `${p1box}`;
+    
+    if (turn && letter !== 'C') {
+        color = `${p1box}`;
         letter = `${playerletter}`
         console.log(letter)
         you++;
-        // }
-    // else if( turn==false && isPlayer2Computer){
-    //     letter = `C2`
-    //     comp2++;
-
-    // }else if (turn && isPlayer2Computer==false){
-    //     letter = `${player2letter}`
     }
     else {
         letter = 'C'
         comp++;
     }
+    }
+    if(currentGameOption==="PxP"){
 
+    
+    if (turn && letter !== getInitials(playerName.value)) {
+        you++;        
+    }
+    else {
+        letter = getInitials(player2Name.value)
+        player1++;
+    }
+    }
     // Update the letter inside the box
     $("div.box[data-id='" + id + "'] h2.letter").text(letter);
 
     boxes[id] = "full";
     
-    $("#player1").text(` ${player2Name} : ` + you);
-    $("#player2").text(`${playerName} : ` + comp);
+    $("#player").text(` ${playerName.value} : ` + you);
+    if (currentGameOption ==="PxC")
+        $("#player2").text(`Computer : ` + comp);
+    if (currentGameOption ==="PxP")
+        $("#player2").text(`${player2Name.value} : ` + player1);
+    else if (currentGameOption ==="2PxC")    
+        $("#player3").text(`Computer : ` + comp);
+        $("#player2").text(`${player2Name.value} : ` + player1);
 
     let full = true;
-    for (let i = boxes.length - 1; i >= 0; i--) {
+    for (let i = boxes.length-1 ;i >= 0; i--) {
         if (boxes[i] != full) {
             full = false;
             break;
         }
     }
 
-    if (full) alert(((you > comp) ? "You" : "Computer") + " won");
+    if (full && currentGameOption==="PxC") alert(((you > comp) ? "You" : "Computer") + " won");
+    if (full && currentGameOption==="PxP") console.log(((you > player1) ? playerName.value : player2Name.value) + " won!");
 }
 
  

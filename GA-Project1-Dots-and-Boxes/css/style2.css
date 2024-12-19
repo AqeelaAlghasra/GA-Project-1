@@ -8,6 +8,18 @@ body {
 	color: beige;
 }
 
+button {
+
+	font-size: medium;
+	background-color:snow;
+	color: black;
+	width: 100px ;
+	height: 50px;
+	border-radius: 10px;
+	padding:-10px;
+	margin: 10px auto;
+}
+
 button.Grid {
 	background-color:snow;
 	color: black;
@@ -35,8 +47,9 @@ button.Game {
 
 body #board{
 	 margin-top: 50px;
-
+	 
 }
+
 #PlayerData {
 	text-align: left;
 	margin: 5px;
