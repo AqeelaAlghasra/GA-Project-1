@@ -9,7 +9,7 @@ I created this game because I was inspired by The Matrix series and wanted to br
 - **Multiple modes to play** : PxC, PxP,2PxC, and Px2C. 
 
 
-## Click the link below to start playing Dots&Boxes Game: 
+## Click the link below to go to Dots&Boxes Game: 
 
 -[GAME](https://aqeelaalghasra.github.io/GA-Project-1/GA-Project1-Dots-and-Boxes/index)
 
