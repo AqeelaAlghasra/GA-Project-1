@@ -11,7 +11,7 @@ I created this game because I was inspired by The Matrix series and wanted to br
 
 ## Click the link below to start playing Dots&Boxes Game: 
 
-- (https://aqeelaalghasra.github.io/GA-Project-1/GA-Project1-Dots-and-Boxes/index)[]
+- (https://aqeelaalghasra.github.io/GA-Project-1/GA-Project1-Dots-and-Boxes/index)
 
 ## How to Play
 - create boxes majority of boxes to win the game when the board is completed and full of boxes the game ends.
