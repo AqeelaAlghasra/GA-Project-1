@@ -31,9 +31,9 @@ I created this game because I was inspired by The Matrix series and wanted to br
 
 
 ## Game View
-![Loading  Page](LoadingPage.png)
-![Playing Pages](GamePage.png)
-![Playing page with custom board option](GamePageWithCustomOption.png)
+![Loading  Page](./LoadingPage.png)
+![Playing Pages](./GamePage.png)
+![Playing page with custom board option](./GGamePageWithCustomOption.png)
 
 
 
